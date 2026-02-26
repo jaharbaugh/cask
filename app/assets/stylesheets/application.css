@@ -13,3 +13,21 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+ .ubuntu-condensed-regular {
+  font-family: "Ubuntu Condensed", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.header-img {
+  width: 100vw;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
