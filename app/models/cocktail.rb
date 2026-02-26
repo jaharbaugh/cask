@@ -1,7 +1,7 @@
 class Cocktail < ApplicationRecord
     belongs_to :publication
 
-    enum base_spirit {
+    enum base_spirit: {
         gin: 0,
         vodka: 1,
         rum: 2,
