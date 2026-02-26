@@ -2,3 +2,64 @@
 <h2>Welcome to Cask</h2>
 <p>Cask is a visual timeline of the publication dates of classic cocktail recipes </p>
 </div>
+
+<script>
+    const cocktailData = <%= raw @timeline_data.to_json %>;
+    const jitter = 3; // max +/- 0.1
+    const jitteredData = cocktailData.map(c => ({
+    ...c,
+    y: (Math.random() - 0.5) * jitter  // small random vertical offset
+  }));
+</script>
+
+<div>
+  <canvas id="timeline"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('timeline');
+
+  new Chart(ctx, {
+    type: 'scatter',
+    data: {
+        datasets: [{
+            label: 'Cocktails',
+            data: jitteredData,
+            }]
+    },
+    options: {
+      scales: {
+        x: {
+          type: 'linear',
+          position: 'bottom',
+          title: { text: 'Year Published', display: true},
+          ticks: {stepSize: 5}
+        },
+        y: {
+            display: false,
+            beginAtZero: false,
+            min: -5,
+            max: 5,
+            
+        }
+      },
+      elements:{
+        point:{
+            radius: 20
+        }
+      },
+      plugins: {
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              const point = context.raw;
+              return `${point.name} (${point.title}, ${point.x})`;
+            }
+          }
+        }
+      }
+    }
+  });
+</script>
