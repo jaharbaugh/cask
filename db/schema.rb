@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_02_24_224114) do
+ActiveRecord::Schema[7.1].define(version: 2026_02_27_010658) do
   create_table "cocktails", force: :cascade do |t|
     t.string "name", null: false
     t.integer "base_spirit", null: false
@@ -19,6 +19,18 @@ ActiveRecord::Schema[7.1].define(version: 2026_02_24_224114) do
     t.datetime "updated_at", null: false
     t.index ["base_spirit"], name: "index_cocktails_on_base_spirit"
     t.index ["publication_id"], name: "index_cocktails_on_publication_id"
+  end
+
+  create_table "photos", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "photographer"
+    t.string "url", null: false
+    t.string "source", null: false
+    t.string "license"
+    t.integer "cocktail_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cocktail_id"], name: "index_photos_on_cocktail_id"
   end
 
   create_table "publications", force: :cascade do |t|
@@ -33,4 +45,5 @@ ActiveRecord::Schema[7.1].define(version: 2026_02_24_224114) do
   end
 
   add_foreign_key "cocktails", "publications"
+  add_foreign_key "photos", "cocktails"
 end
