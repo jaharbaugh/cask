@@ -1,11 +1,11 @@
 <div class="container">
-<h2>Welcome to Cask</h2>
+<h1>Welcome to Cask</h1>
 <p>Cask is a visual timeline of the publication dates of classic cocktail recipes </p>
 </div>
 
 <script>
     const cocktailData = <%= raw @timeline_data.to_json %>;
-    const jitter = 3; // max +/- 0.1
+    const jitter = 3; // max +/- 1
     const jitteredData = cocktailData.map(c => ({
     ...c,
     y: (Math.random() - 0.5) * jitter  // small random vertical offset
@@ -34,8 +34,14 @@
         x: {
           type: 'linear',
           position: 'bottom',
-          title: { text: 'Year Published', display: true},
-          ticks: {stepSize: 5}
+          title: {
+            text: 'Year Published',
+            display: true,
+            color: 'rgb(236, 202, 152)'
+          },
+
+          border: {color: 'rgb(236, 202, 152)' },
+          ticks: {stepSize: 5, color: 'rgb(236, 202, 152)'}
         },
         y: {
             display: false,
@@ -49,6 +55,15 @@
         point:{
             radius: 20
         }
+      },
+      onClick: (event, elements, chart) => {
+        if (!elements.length) return;
+        const element = elements[0];
+        const dataPoint = chart.data.datasets[element.datasetIndex].data[element.index];
+        window.location.href = `/cocktails/${dataPoint.id}`;
+       },
+      onHover: (event, elements) => {
+        event.native.target.style.cursor = elements.length ? 'pointer' : 'default';
       },
       plugins: {
         tooltip: {

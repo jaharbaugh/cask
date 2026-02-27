@@ -7,6 +7,7 @@ class CocktailsController < ApplicationController
         @timeline_data = @cocktails.map do |cocktail|
             {
                 name: cocktail.name,
+                id: cocktail.id,
                 x: cocktail.publication.publication_year,
                 y: 0,
                 title: cocktail.publication.title,

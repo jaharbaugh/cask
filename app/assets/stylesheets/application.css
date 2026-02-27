@@ -17,7 +17,9 @@
 * {
   margin: 0;
   padding: 0;
+  color: rgb(236, 202, 152);
 }
+
 
  .ubuntu-condensed-regular {
   font-family: "Ubuntu Condensed", sans-serif;
@@ -30,4 +32,8 @@
   height: auto;
   object-fit: cover;
   display: block;
+}
+
+body {
+  background-color: #333333;
 }
