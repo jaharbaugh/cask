@@ -126,3 +126,94 @@ p14 = Publication.create!(
 Cocktail.create!(name: "Algonquin", base_spirit: :rye, publication: p14)
 Cocktail.create!(name: "Income Tax", base_spirit: :gin, publication: p14)
 Cocktail.create!(name: "Between the Sheets", base_spirit: :brandy_cognac, publication: p14)
+
+p15 = Publication.create!(
+  title: "How to Mix Drinks", 
+  author: "Jerry Thomas", 
+  publication_type: :book, 
+  publication_year: 1862
+)
+
+Cocktail.create!(name: "Sherry Cobbler", base_spirit: :other, publication: p15)
+Cocktail.create!(name: "Brandy Crusta", base_spirit: :brandy_cognac, publication: p15)
+Cocktail.create!(name: "Gin Punch", base_spirit: :gin, publication: p15)
+
+p16 = Publication.create!(
+  title: "Bartender's Manual", 
+  author: "Harry Johnson", 
+  publication_type: :book, 
+  publication_year: 1882
+)
+
+Cocktail.create!(name: "Martinez", base_spirit: :gin, publication: p16)
+Cocktail.create!(name: "Improved Whiskey Cocktail", base_spirit: :rye, publication: p16)
+
+p17 = Publication.create!(
+  title: "The Ideal Bartender", 
+  author: "Tom Bullock", 
+  publication_type: :book, 
+  publication_year: 1917
+)
+
+Cocktail.create!(name: "Clover Club", base_spirit: :gin, publication: p17)
+Cocktail.create!(name: "Gillette Cocktail", base_spirit: :gin, publication: p17)
+
+p18 = Publication.create!(
+  title: "Don the Beachcomber Menu", 
+  author: "Donn Beach", 
+  publication_type: :menu, 
+  publication_year: 1934
+)
+
+Cocktail.create!(name: "Zombie", base_spirit: :rum, publication: p18)
+Cocktail.create!(name: "Cobra's Fang", base_spirit: :rum, publication: p18)
+
+p19 = Publication.create!(
+  title: "Esquire Magazine", 
+  author: "Esquire Editors", 
+  publication_type: :magazine, 
+  publication_year: 1953
+)
+
+Cocktail.create!(name: "Black Russian", base_spirit: :vodka, publication: p19)
+Cocktail.create!(name: "Golden Cadillac", base_spirit: :other, publication: p19)
+
+p20 = Publication.create!(
+  title: "Playboy's Host & Bar Book", 
+  author: "Thomas Mario", 
+  publication_type: :book, 
+  publication_year: 1961
+)
+
+Cocktail.create!(name: "Rusty Nail", base_spirit: :scotch, publication: p20)
+Cocktail.create!(name: "Stinger", base_spirit: :brandy_cognac, publication: p20)
+
+p21 = Publication.create!(
+  title: "Sunset Magazine", 
+  author: "Sunset Editors", 
+  publication_type: :magazine, 
+  publication_year: 1971
+)
+
+Cocktail.create!(name: "Tequila Sunrise", base_spirit: :tequila, publication: p21)
+Cocktail.create!(name: "Harvey Wallbanger", base_spirit: :vodka, publication: p21)
+
+p22 = Publication.create!(
+  title: "Cosmopolitan Magazine", 
+  author: "Cosmopolitan Editors", 
+  publication_type: :magazine, 
+  publication_year: 1978
+)
+
+Cocktail.create!(name: "Amaretto Sour", base_spirit: :other, publication: p22)
+Cocktail.create!(name: "Alabama Slammer", base_spirit: :bourbon, publication: p22)
+
+p23 = Publication.create!(
+  title: "Mr. Boston Official Bartender's Guide", 
+  author: "Anthony Giglio", 
+  publication_type: :book, 
+  publication_year: 1980
+)
+
+Cocktail.create!(name: "Sex on the Beach", base_spirit: :vodka, publication: p23)
+Cocktail.create!(name: "Fuzzy Navel", base_spirit: :other, publication: p23)
