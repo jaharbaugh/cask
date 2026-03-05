@@ -37,11 +37,15 @@
           title: {
             text: 'Year Published',
             display: true,
-            color: 'rgb(236, 202, 152)'
+            color: 'rgb(236, 202, 152)',
+            font: {size: 36}
           },
 
           border: {color: 'rgb(236, 202, 152)', width: 20},
-          ticks: {stepSize: 5, color: 'rgb(236, 202, 152)'}
+          ticks: {
+            stepSize: 5,
+            color: 'rgb(236, 202, 152)',
+            font: {size: 20}}
         },
         y: {
             display: false,
@@ -53,7 +57,11 @@
       },
       elements:{
         point:{
-            radius: 20
+            radius: 20,
+            hoverRadius: 28,
+            backgroundColor: 'rgb(236, 202, 152)',
+            borderColor: jitteredData.map(d => d.color),
+            borderWidth: 4
         }
       },
       onClick: (event, elements, chart) => {
@@ -67,13 +75,25 @@
       },
       plugins: {
         tooltip: {
+          padding: 16,
+          titleFont: {
+            size: 20,
+            weight: 'bold'
+          },
+          bodyFont: {
+            size: 16
+          },
           callbacks: {
-            label: function(context) {
-              const point = context.raw;
-              return `${point.name} (${point.title}, ${point.x})`;
-            }
+            title: function(context) {
+            const point = context[0].raw;
+            return point.name;
+          },
+          label: function(context) {
+            const point = context.raw;
+            return `${point.title}, ${point.x}`;
           }
         }
+      }
       }
     }
   });
